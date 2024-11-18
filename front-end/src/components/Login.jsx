@@ -17,24 +17,24 @@ const Login = () => {
     }
     
     let sendData=()=>{
-        if((admin.adminName=="admin")&&(admin.password=="12345"))
-        {
-            localStorage.setItem("adminName","admin");
-            navigate('/home');
-        }
-        else{
-            alert("Invalid adminName or password")
-        }
-        // axiosInstance.post("http://localhost:3000/admin/login",admin)
-        // .then((res)=>{
-        //     console.log(res)
-        //     alert(res.data.message)
-        //     if(res.data.admintoken)
-        //     {
-        //         localStorage.setItem("token",res.data.admintoken);
-        //         navigate('/home');
-        //     }
-        // })
+        // if((admin.adminName=="admin")&&(admin.password=="12345"))
+        // {
+        //     localStorage.setItem("adminName","admin");
+        //     navigate('/home');
+        // }
+        // else{
+        //     alert("Invalid adminName or password")
+        // }
+        axios.post("http://localhost:3000/user/login",admin)
+        .then((res)=>{
+            console.log(res)
+            alert(res.data.message)
+            if(res.data.admintoken)
+            {
+                localStorage.setItem("token",res.data.admintoken);
+                navigate('/home');
+            }
+        })
     }
 
     

@@ -12,6 +12,7 @@ import axiosInstance from '../axiosintercepters';
 
 
 const Home = () => {
+    const user = localStorage.getItem("adminName");
 
     const [employee, setEmployee] = useState([]);
 

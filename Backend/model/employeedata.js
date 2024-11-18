@@ -10,7 +10,7 @@ const eSchema=   mongoose.Schema({
 
 });
 
-const employee=mongoose.model('coursedetail',eSchema);
+const employee=mongoose.model('empdetail',eSchema);
 
 
 module.exports=employee;

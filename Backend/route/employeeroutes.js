@@ -24,7 +24,7 @@ function verifyToken(req,res,next){
 // GET OPERATION
 router.get('/',verifyToken,async (req, res) => {
     try {
-        const data = await cModel.find();
+        const data = await eModel.find();
         res.status(200).send(data);
     } catch (error) {
         res.status(404).send('Data not found');

@@ -7,14 +7,14 @@ router.use(express.json());
 
 
 router.post('/login',async(req,res)=>{
-    const admin=await aModel.findOne({adminname:req.body.adminName})
+    const admin=await aModel.findOne({adminName:req.body.adminName})
     if(!admin){
          res.json({message:"admin not found"});
     }
     try{
         if(admin.password==req.body.password)
         {
-            const payload={uname:req.body.adminname,pwd:req.body.password}
+            const payload={uname:req.body.adminName,pwd:req.body.password}
             const  token=jwt.sign(payload,"secret")
             res.status(200).send({message:"Login Successful",admintoken:token})
 
